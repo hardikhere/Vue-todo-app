@@ -19,7 +19,7 @@
              </h4>
           <form @submit.prevent="">
               
-              <input v-model="addNewtodoString"  type="text" class="form-control addnew"><button class="btn btn-info p-6 m-3" @click.prevent="addTodo(addNewtodoString)">Add</button>
+              <input v-model="addNewtodoString"  value="ss" id = "addinput" type="text" class="form-control addnew"><button class="btn btn-info p-6 m-3" @click.prevent="addTodo(addNewtodoString)">Add</button>
           </form>
            
           </div>
@@ -93,18 +93,18 @@ export default{
                 console.log(strings)
                 if(strings.indexOf(newtodo) !== -1){
                     this.error = "task already exists";
-                    return ;
-                }
+                    return;
+                }else {
           this.todos.push({
               todoString:newtodo,
               completed:false
           })
           localStorage.setItem("todos", JSON.stringify([...this.todos,{todoString:newtodo,completed:false}]));
-          this.error = "";
+          this.error = "";}
           }else {
               this.error = "task should be of atleast 3 characters long"
           }
-          
+          this.addNewtodoString = "";
         },
         toggleTodo(todo){
             //todo.completed = !todo.completed;
