@@ -73,7 +73,7 @@ export default{
         return {
             error:"",
              addNewtodoString:"",
-            todos:[{todoString:"learn vue",completed:false},
+            todos:[
              ...getData()
             ]
         }
